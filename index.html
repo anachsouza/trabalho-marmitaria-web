@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marmitaria - Gerenciamento de Menu</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <section>
+            <div class="logo">
+                <img src="./assets/img/logo.png" alt="Logo">
+                <span>Marmitaria</span>
+            </div>
+
+            <div class="tema-toggle">
+                <input type="checkbox" id="checkbox-tema" class="checkbox-tema">
+        
+                <label for="checkbox-tema" class="label-tema">
+                    <svg class="icone-lua" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="icone-sol" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span class="bolinha-tema"></span>
+                </label>
+            </div>
+        </section>
+    </header>
+
+    <main class="conteudo-principal">
+        
+        <section class="topo-pagina">
+            <h1>Gerenciamento de Menu</h1>
+            <a href="./pages/cadastro-categoria.html" class="btn-adicionar">+ Adicionar Categoria</a>
+        </section>
+
+        <section class="metricas">
+            <div class="cartao-metrica laranja">
+                <div class="info-metrica">
+                    <p>Total de Categorias</p>
+                    <h2 id="metrica-total-categorias">4</h2>
+                </div>
+            </div>
+            
+            <div class="cartao-metrica verde">
+                <div class="info-metrica">
+                    <p>Categorias Ativas</p>
+                    <h2 id="metrica-categorias-ativas">3</h2>
+                </div>
+            </div>
+
+            <div class="cartao-metrica roxo">
+                <div class="info-metrica">
+                    <p>Categorias Ocultas</p>
+                    <h2 id="metrica-categorias-ocultas">1</h2>
+                </div>
+            </div>
+
+            <div class="cartao-metrica amarelo">
+                <div class="info-metrica">
+                    <p>Total de Pratos</p>
+                    <h2 id="metrica-total-pratos">18</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="lista-categorias">
+            <h3>Categorias cadastradas</h3>
+
+            <div class="cartao-categoria" data-id="1">
+                <img src="./assets/img/linha-caseira.jpg" alt="Foto Linha Caseira">
+
+                <div class="detalhes-categoria">
+                    <h4>Linha Caseira</h4>
+                    <p><span class="contador-pratos">8</span> pratos cadastrados</p>
+                </div>
+
+                <div class="status ativa">
+                    <span class="bolinha-verde"></span> Ativa
+                </div>
+
+                <div class="acoes">
+                    <a href="./pages/lista-pratos.html" class="btn-secundario">Ver pratos</a>
+                    <button class="btn-excluir">
+                        <img src="./assets/icons/icone-lixeira.svg" alt="Excluir" class="icone-lixeira">
+                    </button>
+                    <button class="btn-switch on"></button>
+                </div>
+
+            </div>
+
+            <div class="cartao-categoria" data-id="2">
+
+                <img src="./assets/img/linha-fitness.jpg" alt="Foto Linha Fitness">
+
+                <div class="detalhes-categoria">
+                    <h4>Linha Fitness</h4>
+                    <p><span class="contador-pratos">5</span> pratos cadastrados</p>
+                </div>
+
+                <div class="status ativa">
+                    <span class="bolinha-verde"></span> Ativa
+                </div>
+
+                <div class="acoes">
+                    <a href="./pages/lista-pratos.html" class="btn-secundario">Ver pratos</a>
+                    <button class="btn-excluir">
+                        <img src="./assets/icons/icone-lixeira.svg" alt="Excluir" class="icone-lixeira">
+                    </button>
+                    <button class="btn-switch on"></button>
+                </div>
+
+            </div>
+
+            <div class="cartao-categoria" data-id="3">
+                <img src="./assets/img/linha-restrições.png" alt="Foto Restrições">
+
+                <div class="detalhes-categoria">
+                    <h4>Restrições Especiais</h4>
+                    <p><span class="contador-pratos">3</span> pratos cadastrados</p>
+                </div>
+
+                <div class="status oculta">
+                    <span class="bolinha-cinza"></span> Oculta
+                </div>
+
+                <div class="acoes">
+                    <a href="./pages/lista-pratos.html" class="btn-secundario">Ver pratos</a>
+                    <button class="btn-excluir">
+                        <img src="./assets/icons/icone-lixeira.svg" alt="Excluir" class="icone-lixeira">
+                    </button>
+                    <button class="btn-switch on"></button>
+                </div>
+            </div>
+
+            <div class="cartao-categoria" data-id="4">
+                <img src="./assets/img/linha-economica.jpg" alt="Foto Linha Econômica">
+
+                <div class="detalhes-categoria">
+                    <h4>Linha Econômica</h4>
+                    <p><span class="contador-pratos">2</span> pratos cadastrados</p>
+                </div>
+
+                <div class="status ativa">
+                    <span class="bolinha-verde"></span> Ativa
+                </div>
+
+
+                <div class="acoes">
+                    <a href="./pages/lista-pratos.html" class="btn-secundario">Ver pratos</a>
+                    <button class="btn-excluir">
+                        <img src="./assets/icons/icone-lixeira.svg" alt="Excluir" class="icone-lixeira">
+                    </button>
+                    <button class="btn-switch on"></button>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+</html>
