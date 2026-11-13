@@ -20,13 +20,13 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../assets/fonts/Poppins-Bold.ttf') format('truetype');
+    src: url('../assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url('../assets/fonts/Lato-Light.ttf') format('truetype');
+    src: url('../assets/fonts/Lato/Lato-Light.ttf') format('truetype');
     font-weight: normal;
 }
 

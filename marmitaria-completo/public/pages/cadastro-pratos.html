@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marmitaria - Cadastro de Prato</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <section>
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo">
+                <span>Marmitaria</span>
+            </div>
+
+            <div class="tema-toggle">
+                <input type="checkbox" id="checkbox-tema" class="checkbox-tema">
+        
+                <label for="checkbox-tema" class="label-tema">
+                    <svg class="icone-lua" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="icone-sol" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span class="bolinha-tema"></span>
+                </label>
+            </div>
+        </section>
+    </header>
+
+    <main class="conteudo-principal">
+        <section class="topo-pagina">
+            <h1 id="titulo">Adicionar Prato</h1>
+            <a href="../index.html" id="link-voltar" class="btn-secundario">← Voltar</a>
+        </section>
+
+        <form id="form-prato" class="formulario" novalidate>
+            <label>Categoria
+                <select id="categoria"></select>
+            </label>
+
+            <label>Nome do prato
+                <input type="text" id="nome" placeholder="Ex.: Frango grelhado com legumes">
+            </label>
+
+            <label>Descrição
+                <textarea id="descricao" rows="3" placeholder="Ingredientes, acompanhamentos..."></textarea>
+            </label>
+
+            <label>Preço (R$)
+                <input type="number" id="preco" min="0" step="0.01" placeholder="0,00">
+            </label>
+
+            <label class="linha">
+                <input type="checkbox" id="disponivel" checked> Disponível para venda
+            </label>
+
+            <div class="botoes">
+                <button type="submit">Salvar prato</button>
+                <a href="../index.html" id="link-cancelar" class="btn-secundario">Cancelar</a>
+            </div>
+        </form>
+    </main>
+
+    <script src="../js/tema.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/cadastro-pratos.js"></script>
+</body>
+</html>

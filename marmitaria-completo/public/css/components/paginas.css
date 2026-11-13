@@ -1,0 +1,22 @@
+/* Páginas internas: formulários e listas */
+.topo-pagina > div { display: flex; align-items: center; gap: 12px; }
+
+.formulario { display: flex; flex-direction: column; gap: 18px; max-width: 560px; margin-top: 10px; }
+.formulario label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; color: var(--cor-texto); }
+.formulario label.linha { flex-direction: row; align-items: center; gap: 8px; font-weight: 400; }
+.formulario input[type="text"], .formulario input[type="number"],
+.formulario textarea, .formulario select {
+    padding: 10px 12px; border: 1px solid var(--cor-borda); border-radius: 6px;
+    background-color: var(--cor-branco); color: var(--cor-texto); font: inherit;
+}
+.formulario input:focus, .formulario textarea:focus, .formulario select:focus { outline: 2px solid #c2410c; outline-offset: 1px; }
+.formulario .botoes { display: flex; gap: 12px; align-items: center; }
+.formulario button[type="submit"] {
+    background-color: #c2410c; color: #fff; border: none; padding: 12px 24px;
+    border-radius: 6px; font-weight: 500; font-size: 16px;
+}
+.formulario button[type="submit"]:hover { background-color: #9a340a; }
+#previa { display: none; max-width: 160px; border-radius: 8px; margin-top: 4px; }
+
+.preco-prato { font-weight: 700; color: var(--cor-texto) !important; margin-top: 4px; }
+.vazio { padding: 24px; text-align: center; color: var(--cor-texto-claro); }
