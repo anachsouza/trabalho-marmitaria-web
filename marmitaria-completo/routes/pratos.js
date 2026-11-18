@@ -48,7 +48,9 @@ function validar(corpo, db, idAtual) {
         nome,
         descricao,
         preco: Math.round(preco * 100) / 100,
-        disponivel: corpo.disponivel ?? true
+        disponivel: corpo.disponivel ?? true,
+        imagem: corpo.imagem ?? (idAtual ? db.pratos.find(p => p.id === idAtual)?.imagem || '' : '')
+        
     };
 }
 
