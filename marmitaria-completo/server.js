@@ -1,7 +1,10 @@
+// acesso do backend às configurações de conexão com o supabase
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
-const { carregar } = require('./db');
 const { AppError } = require('./erros');
+const { supabase } = require('./supabase');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,15 +24,28 @@ app.use('/api/categorias', require('./routes/categorias'));
 app.use('/api/pratos', require('./routes/pratos'));
 
 // Métricas do index
-app.get('/api/metricas', (req, res) => {
-    const db = carregar();
-    const ativas = db.categorias.filter(c => c.ativa).length;
-    res.json({
-        totalCategorias: db.categorias.length,
-        categoriasAtivas: ativas,
-        categoriasOcultas: db.categorias.length - ativas,
-        totalPratos: db.pratos.length
-    });
+app.get('/api/metricas', async (req, res, next) => {
+    try {
+        const [categorias, ativas, pratos] = await Promise.all([
+            supabase.from('categorias').select('*', { count: 'exact', head: true }),
+            supabase.from('categorias').select('*', { count: 'exact', head: true }).eq('ativa', true),
+            supabase.from('pratos').select('*', { count: 'exact', head: true })
+        ]);
+
+        if (categorias.error) throw categorias.error;
+        if (ativas.error) throw ativas.error;
+        if (pratos.error) throw pratos.error;
+
+        res.json({
+            totalCategorias: categorias.count,
+            categoriasAtivas: ativas.count,
+            categoriasOcultas: categorias.count - ativas.count,
+            totalPratos: pratos.count
+        });
+
+    } catch (erro) {
+        next(erro);
+    }
 });
 
 // Rota de API inexistente
