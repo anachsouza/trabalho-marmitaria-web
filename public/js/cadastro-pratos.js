@@ -2,14 +2,6 @@ const params = new URLSearchParams(location.search);
 const form = document.getElementById('form-prato');
 const selectCat = document.getElementById('categoria');
 const idEditar = params.get('editar');
-const campoImagem = document.getElementById('imagem');
-const previa = document.getElementById('previa');
-let imagemAtual = null;
-
-function mostrarPrevia(src) {
-    previa.src = src;
-    previa.style.display = 'block';
-}
 
 function atualizarLinks() {
     const url = `./lista-pratos.html?categoria=${selectCat.value}`;
@@ -18,18 +10,6 @@ function atualizarLinks() {
 }
 selectCat.addEventListener('change', atualizarLinks);
 
-campoImagem.addEventListener('change', async () => {
-    const arquivo = campoImagem.files[0];
-    if (!arquivo) return ;
-
-    try {  
-        imagemAtual = await Util.lerImagem(arquivo);    
-        mostrarPrevia(imagemAtual);
-    } catch (erro) {
-        mostrarErro(erro);
-    }
-});
-        
 (async () => {
     try {
         const categorias = await API.get('/api/categorias');
@@ -38,10 +18,6 @@ campoImagem.addEventListener('change', async () => {
         if (idEditar) {
             const p = await API.get(`/api/pratos/${idEditar}`);
             document.getElementById('titulo').textContent = 'Editar Prato';
-            imagemAtual = p.imagem || null;
-           if (imagemAtual) {
-            mostrarPrevia(Util.src(imagemAtual, '../'));    
-           }
             selectCat.value = p.categoriaId;
             document.getElementById('nome').value = p.nome;
             document.getElementById('descricao').value = p.descricao;
@@ -65,11 +41,8 @@ form.addEventListener('submit', async e => {
         nome: document.getElementById('nome').value,
         descricao: document.getElementById('descricao').value,
         preco: document.getElementById('preco').value,
-        disponivel: document.getElementById('disponivel').checked,
-        imagem: imagemAtual
-        
+        disponivel: document.getElementById('disponivel').checked
     };
-  
 
     try {
         if (idEditar) await API.put(`/api/pratos/${idEditar}`, corpo);
