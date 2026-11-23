@@ -20,7 +20,7 @@ button, .btn-adicionar, .btn-secundario {
 }
 
 .btn-secundario {
-    background-color: white;
+    background-color: var(--cor-branco);
     border: 1px solid var(--cor-borda);
     padding: 10px 16px;
     border-radius: 6px;
@@ -86,7 +86,22 @@ button, .btn-adicionar, .btn-secundario {
 .btn-switch.on::after { transform: translateX(22px); }
 .btn-switch.off { background-color: #cbd5e1; }
 
-/* Efeito de clique nos botões */
+/* efeito de clique nos botões */
+
 .btn-adicionar:active, .btn-secundario:active, .btn-excluir:active, .btn-switch:active {
     transform: scale(0.95);
+}
+
+/* modo escuro */
+
+[data-tema="dark"] .btn-secundario:hover {
+    background-color: #334155;
+}
+
+[data-tema="dark"] .icone-lixeira {
+    filter: brightness(0) invert(1);
+}
+
+[data-tema="dark"] .btn-switch:not(.on) {
+    background-color: #475569;
 }

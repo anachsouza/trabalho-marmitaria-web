@@ -1,4 +1,5 @@
-// ---------- Aviso de erro (fica fixo na tela para dar print) ----------
+// AVISO DE ERRO
+
 (function injetarEstilo() {
     const css = document.createElement('style');
     css.textContent = `
@@ -7,8 +8,7 @@
         border-radius: 12px; padding: 16px 20px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
         font-family: system-ui, sans-serif; font-size: 15px; line-height: 1.4; }
     #banner-erro strong.titulo { display: block; font-size: 17px; margin-bottom: 4px; }
-    #banner-erro .rota { font-family: monospace; font-size: 13px; opacity: .85; }
-    #banner-erro .dica { margin-top: 8px; font-size: 12px; opacity: .7; }
+    #banner-erro .rota { font-family: monospace; font-size: 13px; opacity: .85; margin-top: 6px; }
     #banner-erro button { position: absolute; top: 8px; right: 12px; border: 0; background: none;
         font-size: 22px; cursor: pointer; color: inherit; }`;
     document.head.appendChild(css);
@@ -36,11 +36,7 @@ function mostrarErro(err) {
     rota.className = 'rota';
     rota.textContent = (err.metodo ? `${err.metodo} ${err.url}` : (err.origem || '')) + `  •  ${new Date().toLocaleString('pt-BR')}`;
 
-    const dica = document.createElement('div');
-    dica.className = 'dica';
-    dica.textContent = 'Tire um print desta tela (e do terminal do servidor).';
-
-    box.append(fechar, titulo, msg, rota, dica);
+    box.append(fechar, titulo, msg, rota);
     document.body.appendChild(box);
 }
 
@@ -48,7 +44,8 @@ function mostrarErro(err) {
 window.addEventListener('error', e => mostrarErro({ message: e.message, origem: `${e.filename}:${e.lineno}` }));
 window.addEventListener('unhandledrejection', e => mostrarErro(e.reason instanceof Error ? e.reason : { message: String(e.reason) }));
 
-// ---------- Cliente da API ----------
+// CLIENTE DA API
+
 const API = {
     async requisitar(metodo, url, corpo) {
         let resposta;
@@ -81,9 +78,12 @@ const API = {
     delete: url        => API.requisitar('DELETE', url)
 };
 
-// ---------- Utilitários ----------
+// ULTILITÁRIOS
+
 const Util = {
-    // imagens padrão são relativas à raiz do site; prefixo = './' (index) ou '../' (pages)
+    
+    //cria imagem padrão
+
     src(imagem, prefixo) {
         if (!imagem) return prefixo + 'assets/img/logo.png';
         return imagem.startsWith('data:') ? imagem : prefixo + imagem;

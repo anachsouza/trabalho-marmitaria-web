@@ -35,3 +35,24 @@
 .cartao-metrica.verde { background-color: #ecfdf5; border-color: #30ae6d; }
 .cartao-metrica.roxo { background-color: #f5f3ff; border-color: #4c4375; }
 .cartao-metrica.amarelo { background-color: #fefce8; border-color: #67623a; }
+
+/* modo escuro */
+[data-tema="dark"] .cartao-metrica.laranja {
+    background-color: rgba(194, 65, 12, 0.15);
+    border-color: #c2410c;
+}
+
+[data-tema="dark"] .cartao-metrica.verde {
+    background-color: rgba(16, 185, 129, 0.15);
+    border-color: #10b981;
+}
+
+[data-tema="dark"] .cartao-metrica.roxo {
+    background-color: rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+}
+
+[data-tema="dark"] .cartao-metrica.amarelo {
+    background-color: rgba(234, 179, 8, 0.15);
+    border-color: #eab308;
+}
