@@ -1,0 +1,58 @@
+.metricas {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cartao-metrica {
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    border: 1px solid transparent;
+}
+
+.info-metrica p {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: var(--cor-texto-claro);
+    margin-bottom: 4px;
+}
+
+.info-metrica h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    color: #3a3d45;
+}
+
+[data-tema="dark"] .info-metrica h2 {
+    color: #f8fafc;
+}
+
+.cartao-metrica.laranja { background-color: #fff7ed; border-color: #d3b287; }
+.cartao-metrica.verde { background-color: #ecfdf5; border-color: #30ae6d; }
+.cartao-metrica.roxo { background-color: #f5f3ff; border-color: #4c4375; }
+.cartao-metrica.amarelo { background-color: #fefce8; border-color: #67623a; }
+
+/* modo escuro */
+[data-tema="dark"] .cartao-metrica.laranja {
+    background-color: rgba(194, 65, 12, 0.15);
+    border-color: #c2410c;
+}
+
+[data-tema="dark"] .cartao-metrica.verde {
+    background-color: rgba(16, 185, 129, 0.15);
+    border-color: #10b981;
+}
+
+[data-tema="dark"] .cartao-metrica.roxo {
+    background-color: rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+}
+
+[data-tema="dark"] .cartao-metrica.amarelo {
+    background-color: rgba(234, 179, 8, 0.15);
+    border-color: #eab308;
+}
