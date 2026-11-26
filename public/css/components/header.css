@@ -79,3 +79,32 @@
 .checkbox-tema:checked + .label-tema .bolinha-tema {
     transform: translateX(30px);
 }
+
+@media (max-width: 600px) {
+    .cabecalho {
+        padding: 12px 16px;
+    }
+
+    .cabecalho section {
+        gap: 12px;
+    }
+
+    .logo{
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .logo img {
+        height: 48px;
+        width: auto;
+    }
+
+    .logo span {
+        font-size: 34px;
+    }
+
+    .label-tema {
+        flex-shrink: 0;
+    }
+
+}

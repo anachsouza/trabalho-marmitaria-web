@@ -89,3 +89,32 @@
     align-items: center;
     gap: 12px;
 }
+
+@media (max-width: 600px) {
+    .cartao-categoria {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .cartao-categoria img {
+        width: 80px;
+        height: 65px;
+        margin-right: 0;
+    }
+
+    .detalhes-categoria {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .status {
+        margin-right: 0;
+    }
+
+    .acoes {
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+}

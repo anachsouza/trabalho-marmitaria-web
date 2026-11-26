@@ -3,6 +3,7 @@ const campoNome = document.getElementById('nome');
 const campoImagem = document.getElementById('imagem');
 const campoAtiva = document.getElementById('ativa');
 const previa = document.getElementById('previa');
+const btnRemoverImagem = document.getElementById('btn-remover-imagem');
 
 let imagemAtual = null;
 const idEditar = new URLSearchParams(location.search).get('editar');
@@ -10,7 +11,18 @@ const idEditar = new URLSearchParams(location.search).get('editar');
 function mostrarPrevia(src) {
     previa.src = src;
     previa.style.display = 'block';
+    btnRemoverImagem.style.display = 'inline-block';
 }
+
+function removerImagem() {
+    imagemAtual = null;
+    campoImagem.value = '';
+    previa.src = '';
+    previa.style.display = 'none';
+    btnRemoverImagem.style.display = 'none';
+}
+
+btnRemoverImagem.addEventListener('click', removerImagem);
 
 // modo edição: cadastro-categoria.html?editar=ID
 (async () => {
