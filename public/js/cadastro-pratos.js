@@ -4,12 +4,24 @@ const selectCat = document.getElementById('categoria');
 const idEditar = params.get('editar');
 const campoImagem = document.getElementById('imagem');
 const previa = document.getElementById('previa');
-let imagemAtual = null;
+const btnRemoverImagem = document.getElementById('btn-remover-imagem');
+let imagemAtual = '';
 
 function mostrarPrevia(src) {
     previa.src = src;
     previa.style.display = 'block';
+    btnRemoverImagem.style.display = 'inline-block';
 }
+
+function removerImagem() {
+    imagemAtual = '';
+    campoImagem.value = '';
+    previa.src = '';
+    previa.style.display = 'none';
+    btnRemoverImagem.style.display = 'none';
+}
+
+btnRemoverImagem.addEventListener('click', removerImagem);
 
 function atualizarLinks() {
     const url = `./lista-pratos.html?categoria=${selectCat.value}`;
@@ -20,7 +32,7 @@ selectCat.addEventListener('change', atualizarLinks);
 
 campoImagem.addEventListener('change', async () => {
     const arquivo = campoImagem.files[0];
-    if (!arquivo) return ;
+    if (!arquivo) return;
 
     try {  
         imagemAtual = await Util.lerImagem(arquivo);    
@@ -38,10 +50,10 @@ campoImagem.addEventListener('change', async () => {
         if (idEditar) {
             const p = await API.get(`/api/pratos/${idEditar}`);
             document.getElementById('titulo').textContent = 'Editar Prato';
-            imagemAtual = p.imagem || null;
-           if (imagemAtual) {
-            mostrarPrevia(Util.src(imagemAtual, '../'));    
-           }
+            imagemAtual = p.imagem || '';
+            if (imagemAtual) {
+                mostrarPrevia(Util.src(imagemAtual, '../'));    
+            }
             selectCat.value = p.categoriaId;
             document.getElementById('nome').value = p.nome;
             document.getElementById('descricao').value = p.descricao;
@@ -67,9 +79,7 @@ form.addEventListener('submit', async e => {
         preco: document.getElementById('preco').value,
         disponivel: document.getElementById('disponivel').checked,
         imagem: imagemAtual
-        
     };
-  
 
     try {
         if (idEditar) await API.put(`/api/pratos/${idEditar}`, corpo);

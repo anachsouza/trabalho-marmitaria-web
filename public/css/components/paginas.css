@@ -1,3 +1,4 @@
+
 /* Páginas internas: formulários e listas */
 .topo-pagina > div { display: flex; align-items: center; gap: 12px; }
 
@@ -17,6 +18,7 @@
 }
 .formulario button[type="submit"]:hover { background-color: #9a340a; }
 #previa { display: none; max-width: 160px; border-radius: 8px; margin-top: 4px; }
+#btn-remover-imagem { display: none; align-self: flex-start; margin-top: 4px; }
 
 .preco-prato { font-weight: 700; color: var(--cor-texto) !important; margin-top: 4px; }
 .vazio { padding: 24px; text-align: center; color: var(--cor-texto-claro); }

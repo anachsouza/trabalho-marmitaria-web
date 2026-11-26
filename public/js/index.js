@@ -32,6 +32,7 @@ async function renderizarIndex() {
                     <span class="${c.ativa ? 'bolinha-verde' : 'bolinha-cinza'}"></span> ${c.ativa ? 'Ativa' : 'Oculta'}
                 </div>
                 <div class="acoes">
+                    <a href="./pages/cadastro-categoria.html?editar=${c.id}" class="btn-secundario">Editar</a>
                     <a href="./pages/lista-pratos.html?categoria=${c.id}" class="btn-secundario">Ver pratos</a>
                     <button class="btn-excluir">
                         <img src="./assets/icons/icone-lixeira.svg" alt="Excluir" class="icone-lixeira">
