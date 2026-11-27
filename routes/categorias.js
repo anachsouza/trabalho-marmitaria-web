@@ -15,6 +15,7 @@ function validar(corpo, categorias, idAtual) {
 
     if (nome.length < 2) throw new AppError(400, 'O nome da categoria é obrigatório (mínimo de 2 caracteres).');
     if (nome.length > 50) throw new AppError(400, 'O nome da categoria deve ter no máximo 50 caracteres.');
+    if (/\p{N}/u.test(nome)) throw new AppError(400, 'O nome da categoria não pode conter números.')
 
     const duplicada = categorias.some(c => c.nome.toLowerCase() === nome.toLowerCase() && c.id !== idAtual);
     if (duplicada) throw new AppError(409, `Já existe uma categoria chamada "${nome}".`);
